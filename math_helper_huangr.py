@@ -2,7 +2,11 @@ from math import *
 #import doctest
 #doctest.testmod()
 
+<<<<<<< HEAD
 #choice = float(input("Which formula would you like to use?"))
+=======
+choice = input("Which formula would you like to use?")   
+>>>>>>> 0541664e89676377b6daa882841368ec4e45b7aa
 
 def pythagtheo(a,b,c):
     '''when given 2 sides of a right triangle, returns missing side

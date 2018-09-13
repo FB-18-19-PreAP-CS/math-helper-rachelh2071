@@ -1,6 +1,6 @@
 from math import *
 
-choice = input("Which formula would you like to use?")
+choice = input("Which formula would you like to use?")   
 
 def pythagtheo(a,b,c):
     '''when given 2 legs of a right triangle, returns length of hypotenuse'''

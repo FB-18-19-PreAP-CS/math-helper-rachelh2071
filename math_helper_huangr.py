@@ -48,9 +48,18 @@ def pythagtheo(a,b,c):
     
 def herons(a,b,c):
     '''when given 3 sides of a triangle, returns area using semiperimeter
+    >>> herons(3,4,5)
+    6.0
+    
+    >>> herons(5,12,13)
+    30.0
+    
+    >>> herons(8,15,17)
+    60.0
+    
     '''
     semi = (a + b + c)/2
-    return math.sqrt(semi(semi-a)(semi-b)(semi-c))
+    return math.sqrt(semi*(semi-a)*(semi-b)*(semi-c))
                          
 
                          

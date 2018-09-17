@@ -1,16 +1,44 @@
-from math import *
-#import doctest
-#doctest.testmod()
+import math
 
-<<<<<<< HEAD
 #choice = float(input("Which formula would you like to use?"))
-=======
-choice = input("Which formula would you like to use?")   
->>>>>>> 0541664e89676377b6daa882841368ec4e45b7aa
 
 def pythagtheo(a,b,c):
     '''when given 2 sides of a right triangle, returns missing side
+    >>> pythagtheo(3,4,0)
+    5.0
+    >>> pythagtheo(0,4,5)
+    3.0
+    >>> pythagtheo(3,0,5)
+    4.0
+    
+    
+    The hypotenuse cannot equal either of the side lengths
+    >>> pythagtheo(30,0,30)
+    Traceback (most recent call last):
+        ...
+    ValueError: c cannot equal a or b
+    
+    There are no negative lengths
+    >>> pythagtheo(-3,4,0)
+    Traceback (most recent call last):
+        ...
+    ValueError: a,b,and c must be positive
+    
+    a,b,or c can't be too large either
+    >>> pythagtheo(1e100,0,4)
+    Traceback (most recent call last):
+        ...
+    OverflowError: a,b,or c is too large
     '''
+    if a < 0 or b < 0 or c < 0:
+        raise ValueError("a,b,and c must be positive")
+    
+    if c == a or c == b:
+        raise ValueError("c cannot equal a or b")
+    
+    if a+1 == a or b+1 == b or c+1 == c: 
+        raise OverflowError("a,b,or c is too large")    
+    
     if a == 0:
         return math.sqrt(c**2-b**2)
     elif b == 0:
@@ -23,3 +51,10 @@ def herons(a,b,c):
     '''
     semi = (a + b + c)/2
     return math.sqrt(semi(semi-a)(semi-b)(semi-c))
+                         
+
+                         
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+    #main()

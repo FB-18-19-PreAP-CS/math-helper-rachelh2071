@@ -29,6 +29,8 @@ def pythagtheo(a,b,c):
     Traceback (most recent call last):
         ...
     OverflowError: a,b,or c is too large
+    
+
     '''
     if a < 0 or b < 0 or c < 0:
         raise ValueError("a,b,and c must be positive")
@@ -57,7 +59,42 @@ def herons(a,b,c):
     >>> herons(8,15,17)
     60.0
     
+    A triangle can't have a side with length of 0
+    >>> herons(0,5,5)
+    Traceback (most recent call last):
+        ...
+    ValueError: a,b,or c cannot equal 0
+    
+    There are no negative lengths
+    >>> herons(-3,4,5)
+    Traceback (most recent call last):
+        ...
+    ValueError: a,b,and c must be positive
+    
+    a,b,or c can't be too large either
+    >>> herons(1e100,7,4)
+    Traceback (most recent call last):
+        ...
+    OverflowError: a,b,or c is too large
+    
+    Triangle Inequality Theorem:
+    >>> herons(3,4,10)
+    Traceback (most recent call last):
+        ...
+    ValueError: a,b,and c must be able to form a triangle
     '''
+    if a < 0 or b < 0 or c < 0:
+        raise ValueError("a,b,and c must be positive")
+    
+    if a == 0 or b == 0 or c == 0:
+        raise ValueError("a,b,or c cannot equal 0")
+    
+    if a+1 == a or b+1 == b or c+1 == c: 
+        raise OverflowError("a,b,or c is too large")
+    
+    if not(a+b>c and c+b>a and c+a>b):
+        raise ValueError("a,b,and c must be able to form a triangle")
+    
     semi = (a + b + c)/2
     return math.sqrt(semi*(semi-a)*(semi-b)*(semi-c))
                          

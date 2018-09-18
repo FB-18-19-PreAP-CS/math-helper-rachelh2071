@@ -24,22 +24,12 @@ def pythagtheo(a,b,c):
         ...
     ValueError: a,b,and c must be positive
     
-    a,b,or c can't be too large either
-    >>> pythagtheo(1e100,0,4)
-    Traceback (most recent call last):
-        ...
-    OverflowError: a,b,or c is too large
-    
-
     '''
     if a < 0 or b < 0 or c < 0:
         raise ValueError("a,b,and c must be positive")
     
     if c == a or c == b:
         raise ValueError("c cannot equal a or b")
-    
-    if a+1 == a or b+1 == b or c+1 == c: 
-        raise OverflowError("a,b,or c is too large")    
     
     if a == 0:
         return math.sqrt(c**2-b**2)
@@ -71,12 +61,6 @@ def herons(a,b,c):
         ...
     ValueError: a,b,and c must be positive
     
-    a,b,or c can't be too large either
-    >>> herons(1e100,7,4)
-    Traceback (most recent call last):
-        ...
-    OverflowError: a,b,or c is too large
-    
     Triangle Inequality Theorem:
     >>> herons(3,4,10)
     Traceback (most recent call last):
@@ -89,16 +73,26 @@ def herons(a,b,c):
     if a == 0 or b == 0 or c == 0:
         raise ValueError("a,b,or c cannot equal 0")
     
-    if a+1 == a or b+1 == b or c+1 == c: 
-        raise OverflowError("a,b,or c is too large")
-    
     if not(a+b>c and c+b>a and c+a>b):
         raise ValueError("a,b,and c must be able to form a triangle")
     
     semi = (a + b + c)/2
     return math.sqrt(semi*(semi-a)*(semi-b)*(semi-c))
-                         
+                        
+def sasarea(a,b,C):
+    '''when given 2 adjacent side lengths and the angle between the 2 of a triangle, returns the area of the triangle
 
+    >>> sasarea(3,4,90)
+    6.0
+    
+    >>> sasarea(8,15,90)
+    30.0
+    '''
+    if C == math.radians(C):
+        return (a*b*math.sin(C))/2
+    else:
+        return (a*b*math.sin(math.radians(C))/2)
+    
                          
 if __name__ == "__main__":
     import doctest

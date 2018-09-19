@@ -25,6 +25,8 @@ def pythagtheo(a,b,c):
     ValueError: a,b,and c must be positive
     
     '''
+# add in 2 zero error
+    
     if a < 0 or b < 0 or c < 0:
         raise ValueError("a,b,and c must be positive")
     
@@ -50,16 +52,10 @@ def herons(a,b,c):
     60.0
     
     A triangle can't have a side with length of 0
-    >>> herons(0,5,5)
+    >>> herons(0,5,-5)
     Traceback (most recent call last):
         ...
-    ValueError: a,b,or c cannot equal 0
-    
-    There are no negative lengths
-    >>> herons(-3,4,5)
-    Traceback (most recent call last):
-        ...
-    ValueError: a,b,and c must be positive
+    ValueError: a,b,and c must be greater than 0
     
     Triangle Inequality Theorem:
     >>> herons(3,4,10)
@@ -67,11 +63,8 @@ def herons(a,b,c):
         ...
     ValueError: a,b,and c must be able to form a triangle
     '''
-    if a < 0 or b < 0 or c < 0:
-        raise ValueError("a,b,and c must be positive")
-    
-    if a == 0 or b == 0 or c == 0:
-        raise ValueError("a,b,or c cannot equal 0")
+    if a <= 0 or b <= 0 or c <= 0:
+        raise ValueError("a,b,and c must be greater than 0")
     
     if not(a+b>c and c+b>a and c+a>b):
         raise ValueError("a,b,and c must be able to form a triangle")
@@ -86,12 +79,34 @@ def sasarea(a,b,C):
     6.0
     
     >>> sasarea(8,15,90)
+    60.0
+    
+    >>> sasarea(5,12,90)
     30.0
+    
+    Sum of interior angles of a triangle equal 180 degrees
+    >>> sasarea(3,4,180)
+    Traceback (most recent call last):
+        ...
+    ValueError: C must be less than 180 degrees
+    
+    A triangle can't have a side length nor degree measure of less than or equal to 0
+    >>> sasarea(0,5,-9)
+    Traceback (most recent call last):
+        ...
+    ValueError: a,b,or C must be greater than 0
+      
+    
     '''
+    if a <= 0 or b <= 0 or C <= 0:
+        raise ValueError("a,b,or C must be greater than 0")
+    if C >= 180:
+        raise ValueError("C must be less than 180 degrees")
+    
     if C == math.radians(C):
         return (a*b*math.sin(C))/2
     else:
-        return (a*b*math.sin(math.radians(C))/2)
+        return (a*b*math.sin(math.radians(C)))/2
     
                          
 if __name__ == "__main__":

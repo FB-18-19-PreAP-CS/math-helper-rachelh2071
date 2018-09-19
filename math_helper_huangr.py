@@ -18,17 +18,16 @@ def pythagtheo(a,b,c):
         ...
     ValueError: c cannot equal a or b
     
-    There are no negative lengths
-    >>> pythagtheo(-3,4,0)
+    A triangle can't have a side with length of 0 or less
+    >>> pythagtheo(-3,0,0)
     Traceback (most recent call last):
         ...
-    ValueError: a,b,and c must be positive
+    ValueError: a,b,and c must be greater than 0
     
     '''
-# add in 2 zero error
     
-    if a < 0 or b < 0 or c < 0:
-        raise ValueError("a,b,and c must be positive")
+    if (a < 0 or b < 0 or c < 0) or (a+b)==0 or (b+c)==0 or (a+c)==0:
+        raise ValueError("a,b,and c must be greater than 0")
     
     if c == a or c == b:
         raise ValueError("c cannot equal a or b")
@@ -51,7 +50,7 @@ def herons(a,b,c):
     >>> herons(8,15,17)
     60.0
     
-    A triangle can't have a side with length of 0
+    A triangle can't have a side with length of 0 or less
     >>> herons(0,5,-5)
     Traceback (most recent call last):
         ...
@@ -107,6 +106,45 @@ def sasarea(a,b,C):
         return (a*b*math.sin(C))/2
     else:
         return (a*b*math.sin(math.radians(C)))/2
+
+def pointslope(x1,x2,y1,y2):
+    '''when given 2 points , finds the point slope form of the line created by those 2 points
+
+    >>> pointslope(1,2,0,0)
+    y-0=0.0(x-1)
+    
+    >>> pointslope(1,2,1,2)
+    y-1=1.0(x-1)
+    
+    >>> pointslope(900,3,2003,4)
+    y-2003=2.2285395763656632(x-900)
+    
+    >>> pointslope(0,0,9,0)
+    Too bad. Slope is undefined. x=0
+    
+    >>> pointslope(0,0,0,0)
+    Traceback (most recent call last):
+        ...
+    ValueError: You must input 2 DIFFERENT points
+    
+    
+
+    '''
+    if x1 == x2 and y1 ==y2:
+        raise ValueError("You must input 2 DIFFERENT points")
+    
+    if (x2-x1)==0:
+        print(f"Too bad. Slope is undefined. x={x1}")
+
+    else:
+        slope = (y2-y1)/(x2-x1)
+        print(f"y-{y1}={slope}(x-{x1})")
+
+
+    
+#def perpbisector(x1,x2,y1,y2):
+    
+    
     
                          
 if __name__ == "__main__":

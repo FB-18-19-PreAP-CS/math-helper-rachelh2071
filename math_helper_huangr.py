@@ -107,19 +107,19 @@ def sasarea(a,b,C):
     else:
         return (a*b*math.sin(math.radians(C)))/2
 
-def pointslope(x1,x2,y1,y2):
+def pointslope(x1,y1,x2,y2):
     '''when given 2 points , finds the point slope form of the line created by those 2 points
 
-    >>> pointslope(1,2,0,0)
+    >>> pointslope(1,0,2,0)
     y-0=0.0(x-1)
     
-    >>> pointslope(1,2,1,2)
+    >>> pointslope(1,1,2,2)
     y-1=1.0(x-1)
     
     >>> pointslope(900,3,2003,4)
-    y-2003=2.2285395763656632(x-900)
+    y-3=0.0009066183136899365(x-900)
     
-    >>> pointslope(0,0,9,0)
+    >>> pointslope(0,0,0,9)
     Too bad. Slope is undefined. x=0
     
     >>> pointslope(0,0,0,0)
@@ -142,8 +142,44 @@ def pointslope(x1,x2,y1,y2):
 
 
     
-#def perpbisector(x1,x2,y1,y2):
+def perpbisector(x1,y1,x2,y2):
+#handle y--y1 error
+    '''when given 2 points, finds the point slope form of the line that bisects the line segment created by those 2 points and is perpendicular to that line segment
+
+    >>> perpbisector(1,9,45,23)
+    y-23.0=-3.142857142857143(x-16.0)
+
+    >>> perpbisector(23,-443,53,10)
+    y-38.0=-0.06622516556291391(x--216.5)
     
+    >>> perpbisector(2,34,12,414234)
+    y-7.0=-2.4142926122646064e-05(x-207134.0)
+    
+    >>> perpbisector(3,0,2,0)
+    x = 2.5
+    
+    >>> perpbisector(0,3,0,2)
+    y = 2.5
+    
+    >>> perpbisector(0,0,0,0,)
+    Traceback (most recent call last):
+        ...
+    ValueError: You must input 2 DIFFERENT points
+    
+    '''
+    if x1 == x2 and y1 ==y2:
+        raise ValueError("You must input 2 DIFFERENT points")
+    
+    x = (x1+x2)/2
+    y = (y1+y2)/2
+    if (y2-y1)==0:
+        print(f"x = {x}")
+    elif (x1-x2)==0:
+        print(f"y = {y}")
+    else:
+
+        slope = -((y2-y1)/(x2-x1))**-1
+        print(f"y-{x}={slope}(x-{y})")
     
     
                          

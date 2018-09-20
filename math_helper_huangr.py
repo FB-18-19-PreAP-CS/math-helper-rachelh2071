@@ -1,5 +1,5 @@
 import math
-
+import time
 #choice = float(input("Which formula would you like to use?"))
 
 def pythagtheo(a,b,c):
@@ -181,9 +181,41 @@ def perpbisector(x1,y1,x2,y2):
         slope = -((y2-y1)/(x2-x1))**-1
         print(f"y-{x}={slope}(x-{y})")
     
+def use_pythagtheo():
+    print("Enter in 0 for the missing leg of the triangle")
+    a = float(input("What is the length of one leg of the triangle:"))
+    b = float(input("What is the length of the other leg of the triangle:"))
+    c = float(input("What is the length of the hypotenuse of the triangle:"))
+    print(f"The missing length:{pythagtheo(a,b,c)}")
+    time.sleep(5)
+    
+def use_herons():
+    a = float(input("What is the length of one leg of the triangle:"))
+    b = float(input("What is the length of the other leg of the triangle:"))
+    c = float(input("What is the length of the last leg hypotenuse of the triangle:"))
+    print(f"The area is:{herons(a,b,c)}")
+    time.sleep(5)
+    
+        
+def main():
+    while True:
+        choice = (input('''Which formula would you like to use?
+    (a) Pythagorean Theorem
+    (b) Heron's Formula
+    (c) Area of a triangle using SAS
+    (d) Point slope form of line created by 2 points
+    (e) Perpendicular Bisector of line created by 2 points
+    '''))
+        if choice == 'a':
+            use_pythagtheo()
+        elif choice == 'b':
+            use_herons()
+
+        
+    
     
                          
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    #main()
+    main()

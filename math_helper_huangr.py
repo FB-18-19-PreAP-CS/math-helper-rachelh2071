@@ -211,6 +211,14 @@ def use_pointslope():
     y2 = float(input("What is the y coordinate of the second coordinate"))
     print(f"y-{y1}={(y2-y1)/(x2-x1)}(x-{x1})")
     
+def use_perpbisector():
+    x1 = float(input("What is the x coordinate of the first coordinate"))
+    y1 = float(input("What is the y coordinate of the first coordinate"))
+    x2 = float(input("What is the x coordinate of the second coordinate"))
+    y2 = float(input("What is the y coordinate of the second coordinate"))
+    print(perpbisector())
+    
+    
         
 def main():
     print()
@@ -230,6 +238,9 @@ def main():
             use_sasarea()
         elif choice == 'd':
             use_pointslope()
+        elif choice == 'e':
+            use_perpbisector()
+    
 
         
     

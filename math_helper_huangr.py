@@ -147,16 +147,16 @@ def perpbisector(x1,y1,x2,y2):
     '''when given 2 points, finds the point slope form of the line that bisects the line segment created by those 2 points and is perpendicular to that line segment
 
     >>> perpbisector(1,9,45,23)
-    'y-23.0=-3.142857142857143(x-16.0)'
+    'y-16.0=-3.143(x-23.0)'
     
     >>> perpbisector(1,3,7,2)
     'y-2.5=6.0(x-4.0)'
     
     >>> perpbisector(23,-443,53,10)
-    'y-38.0=-0.06622516556291391(x--216.5)'
+    'y+216.5=-0.066(x-38.0)'
     
     >>> perpbisector(2,34,12,414234)
-    'y-7.0=-2.4142926122646064e-05(x-207134.0)'
+    'y = 207134.0'
     
     >>> perpbisector(3,0,2,0)
     'x = 2.5'
@@ -200,55 +200,56 @@ def use_pythagtheo():
     b = float(input("What is the length of the other leg of the triangle:"))
     c = float(input("What is the length of the hypotenuse of the triangle:"))
     try:
-        print(f"The missing length:{pythagtheo(a,b,c)}")
+        print(f"The missing length: {pythagtheo(a,b,c)}")
     except Exception as e:
         print(f"Error: {e}")
-    time.sleep(5)
+    time.sleep(2)
     
 def use_herons():
-    a = float(input("What is the length of one leg of the triangle:"))
-    b = float(input("What is the length of the other leg of the triangle:"))
-    c = float(input("What is the length of the last leg hypotenuse of the triangle:"))
+    a = float(input("What is the length of one leg of the triangle: "))
+    b = float(input("What is the length of the other leg of the triangle: "))
+    c = float(input("What is the length of the last leg of the triangle: "))
     try:
-        print(f"The area is:{herons(a,b,c)}")
+        print(f"The area is: {herons(a,b,c)}")
     except Exception as e:
         print(f"Error: {e}")
-    time.sleep(5)
+    time.sleep(2)
 
 def use_sasarea():
-    a = float(input("What is the length of one leg of the triangle:"))
-    b = float(input("What is the length of the adjacent leg of that leg:"))
-    c = float(input("What is the degree measure of the angle between those two legs:"))
+    a = float(input("What is the length of one leg of the triangle: "))
+    b = float(input("What is the length of the adjacent leg of that leg: "))
+    c = float(input("What is the degree measure of the angle between those two legs: "))
     try:
-        print(f"The area is:{sasarea(a,b,c)}")
+        print(f"The area is: {sasarea(a,b,c)}")
     except Exception as e:
         print(f"Error: {e}")
-    time.sleep(5)
+    time.sleep(2)
 
 def use_pointslope():
-    x1 = float(input("What is the x coordinate of the first coordinate"))
-    y1 = float(input("What is the y coordinate of the first coordinate"))
-    x2 = float(input("What is the x coordinate of the second coordinate"))
-    y2 = float(input("What is the y coordinate of the second coordinate"))
+    x1 = float(input("What is the x coordinate of the first coordinate "))
+    y1 = float(input("What is the y coordinate of the first coordinate "))
+    x2 = float(input("What is the x coordinate of the second coordinate "))
+    y2 = float(input("What is the y coordinate of the second coordinate "))
     try:
-        print(f"y-{y1}={(y2-y1)/(x2-x1)}(x-{x1})")
+        print(pointslope(x1,y1,x2,y2))
     except Exception as e:
         print(f"Error: {e}")
-    time.sleep(5)
+    time.sleep(2)
     
 def use_perpbisector():
-    x1 = float(input("What is the x coordinate of the first coordinate"))
-    y1 = float(input("What is the y coordinate of the first coordinate"))
-    x2 = float(input("What is the x coordinate of the second coordinate"))
-    y2 = float(input("What is the y coordinate of the second coordinate"))
+    x1 = float(input("What is the x coordinate of the first coordinate "))
+    y1 = float(input("What is the y coordinate of the first coordinate "))
+    x2 = float(input("What is the x coordinate of the second coordinate "))
+    y2 = float(input("What is the y coordinate of the second coordinate "))
     try:
-        print(perpbisector())
+        print(perpbisector(x1,y1,x2,y2))
     except Exception as e:
         print(f"Error: {e}")
-    time.sleep(5)
+    time.sleep(2)
     
         
 def main():
+    print("Welcome to your salvation")
     print()
     while True:
         choice = (input('''Which formula would you like to use?
@@ -257,6 +258,7 @@ def main():
     (c) Area of a triangle using SAS
     (d) Point slope form of line created by 2 points
     (e) Perpendicular Bisector of line created by 2 points
+    press (x) if you want to exit
     '''))
         if choice == 'a':
             use_pythagtheo()
@@ -268,6 +270,9 @@ def main():
             use_pointslope()
         elif choice == 'e':
             use_perpbisector()
+        elif choice == 'x':
+            break
+        print()
     
 
         
@@ -277,4 +282,4 @@ def main():
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    #main()
+    main()

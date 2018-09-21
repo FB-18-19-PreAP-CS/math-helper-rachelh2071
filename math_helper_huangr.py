@@ -187,21 +187,30 @@ def use_pythagtheo():
     a = float(input("What is the length of one leg of the triangle:"))
     b = float(input("What is the length of the other leg of the triangle:"))
     c = float(input("What is the length of the hypotenuse of the triangle:"))
-    print(f"The missing length:{pythagtheo(a,b,c)}")
+    try:
+        print(f"The missing length:{pythagtheo(a,b,c)}")
+    except Exception as e:
+        print(f"Error: {e}")
     time.sleep(5)
     
 def use_herons():
     a = float(input("What is the length of one leg of the triangle:"))
     b = float(input("What is the length of the other leg of the triangle:"))
     c = float(input("What is the length of the last leg hypotenuse of the triangle:"))
-    print(f"The area is:{herons(a,b,c)}")
+    try:
+        print(f"The area is:{herons(a,b,c)}")
+    except Exception as e:
+        print(f"Error: {e}")
     time.sleep(5)
 
 def use_sasarea():
     a = float(input("What is the length of one leg of the triangle:"))
     b = float(input("What is the length of the adjacent leg of that leg:"))
     c = float(input("What is the degree measure of the angle between those two legs:"))
-    print(f"The area is:{sasarea(a,b,c)}")
+    try:
+        print(f"The area is:{sasarea(a,b,c)}")
+    except Exception as e:
+        print(f"Error: {e}")
     time.sleep(5)
 
 def use_pointslope():
@@ -209,15 +218,22 @@ def use_pointslope():
     y1 = float(input("What is the y coordinate of the first coordinate"))
     x2 = float(input("What is the x coordinate of the second coordinate"))
     y2 = float(input("What is the y coordinate of the second coordinate"))
-    print(f"y-{y1}={(y2-y1)/(x2-x1)}(x-{x1})")
+    try:
+        print(f"y-{y1}={(y2-y1)/(x2-x1)}(x-{x1})")
+    except Exception as e:
+        print(f"Error: {e}")
+    time.sleep(5)
     
 def use_perpbisector():
     x1 = float(input("What is the x coordinate of the first coordinate"))
     y1 = float(input("What is the y coordinate of the first coordinate"))
     x2 = float(input("What is the x coordinate of the second coordinate"))
     y2 = float(input("What is the y coordinate of the second coordinate"))
-    print(perpbisector())
-    
+    try:
+        print(perpbisector())
+    except Exception as e:
+        print(f"Error: {e}")
+    time.sleep(5)
     
         
 def main():

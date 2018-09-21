@@ -144,12 +144,14 @@ def pointslope(x1,y1,x2,y2):
 
     
 def perpbisector(x1,y1,x2,y2):
-#handle y--y1 error
     '''when given 2 points, finds the point slope form of the line that bisects the line segment created by those 2 points and is perpendicular to that line segment
 
     >>> perpbisector(1,9,45,23)
     'y-23.0=-3.142857142857143(x-16.0)'
-
+    
+    >>> perpbisector(1,3,7,2)
+    'y-2.5=6.0(x-4.0)'
+    
     >>> perpbisector(23,-443,53,10)
     'y-38.0=-0.06622516556291391(x--216.5)'
     
@@ -175,12 +177,22 @@ def perpbisector(x1,y1,x2,y2):
     y = (y1+y2)/2
     if (y2-y1)==0:
         return f"x = {x}"
-    elif (x1-x2)==0:
+    
+    # check for VERY small slope
+    elif (x1-x2)==0 or -0.0001 < ((y2-y1)/(x2-x1))**-1 < 0.0001:
         return f"y = {y}"
+    
     else:
-
-        slope = -((y2-y1)/(x2-x1))**-1
-        return f"y-{x}={slope}(x-{y})"
+        # You might want to round slope?
+        slope = round(-((y2-y1)/(x2-x1))**-1,3)
+        if x < 0 and y > 0:
+            return f"y-{y}={slope}(x+{-x})"
+        elif x < 0 and y < 0:
+            return f"y+{-y}={slope}(x+{-x})"
+        elif y < 0:
+            return f"y+{-y}={slope}(x-{x})"
+        else:
+            return f"y-{y}={slope}(x-{x})"
     
 def use_pythagtheo():
     print("Enter in 0 for the missing leg of the triangle")
@@ -265,4 +277,4 @@ def main():
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
-    main()
+    #main()

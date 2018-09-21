@@ -249,7 +249,7 @@ def use_perpbisector():
     
         
 def main():
-    print("Welcome to your salvation")
+    print("Welcome to your salvation :D")
     print()
     while True:
         choice = (input('''Which formula would you like to use?

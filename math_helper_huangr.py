@@ -24,7 +24,15 @@ def pythagtheo(a,b,c):
         ...
     ValueError: a,b,and c must be greater than 0
     
+    You must enter in 0 for the missing leg
+    >>> pythagtheo(3,4,5)
+    Traceback (most recent call last):
+        ...
+    ValueError: 0 must be entered in for the missing length
+    
     '''
+    if a != 0 and b!=0 and c!=0:
+        raise ValueError("0 must be entered in for the missing length")
     
     if (a < 0 or b < 0 or c < 0) or (a+b)==0 or (b+c)==0 or (a+c)==0:
         raise ValueError("a,b,and c must be greater than 0")
@@ -252,7 +260,7 @@ def main():
     print("Welcome to your salvation :D")
     print()
     while True:
-        choice = (input('''Which formula would you like to use?
+        choice = str(input('''Which formula would you like to use?
     (a) Pythagorean Theorem
     (b) Heron's Formula
     (c) Area of a triangle using SAS
@@ -260,18 +268,20 @@ def main():
     (e) Perpendicular Bisector of line created by 2 points
     press (x) if you want to exit
     '''))
-        if choice == 'a':
+        if choice.lower() == 'a':
             use_pythagtheo()
-        elif choice == 'b':
+        elif choice.lower() == 'b':
             use_herons()
-        elif choice == 'c':
+        elif choice.lower() == 'c':
             use_sasarea()
-        elif choice == 'd':
+        elif choice.lower() == 'd':
             use_pointslope()
-        elif choice == 'e':
+        elif choice.lower() == 'e':
             use_perpbisector()
-        elif choice == 'x':
+        elif choice.lower() == 'x':
             break
+        else:
+            print("please enter in the letter of the formula you would like to use again")
         print()
     
 

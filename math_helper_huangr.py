@@ -283,6 +283,7 @@ def main():
         else:
             print("please enter in the letter of the formula you would like to use again")
         print()
+        time.sleep(2)
     
 
         

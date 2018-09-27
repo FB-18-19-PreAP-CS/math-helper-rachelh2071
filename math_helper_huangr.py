@@ -204,55 +204,55 @@ def perpbisector(x1,y1,x2,y2):
     
 def use_pythagtheo():
     print("Enter in 0 for the missing leg of the triangle")
-    a = float(input("What is the length of one leg of the triangle:"))
-    b = float(input("What is the length of the other leg of the triangle:"))
-    c = float(input("What is the length of the hypotenuse of the triangle:"))
     try:
+        a = float(input("What is the length of one leg of the triangle:"))
+        b = float(input("What is the length of the other leg of the triangle:"))
+        c = float(input("What is the length of the hypotenuse of the triangle:"))
         print(f"The missing length: {pythagtheo(a,b,c)}")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: Invalid input. Must enter a number")
     time.sleep(2)
     
 def use_herons():
-    a = float(input("What is the length of one leg of the triangle: "))
-    b = float(input("What is the length of the other leg of the triangle: "))
-    c = float(input("What is the length of the last leg of the triangle: "))
     try:
+        a = float(input("What is the length of one leg of the triangle: "))
+        b = float(input("What is the length of the other leg of the triangle: "))
+        c = float(input("What is the length of the last leg of the triangle: "))
         print(f"The area is: {herons(a,b,c)}")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: Invalid input. Must enter a number")
     time.sleep(2)
 
 def use_sasarea():
-    a = float(input("What is the length of one leg of the triangle: "))
-    b = float(input("What is the length of the adjacent leg of that leg: "))
-    c = float(input("What is the degree measure of the angle between those two legs: "))
     try:
+        a = float(input("What is the length of one leg of the triangle: "))
+        b = float(input("What is the length of the adjacent leg of that leg: "))
+        c = float(input("What is the degree measure of the angle between those two legs: "))
         print(f"The area is: {sasarea(a,b,c)}")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: Invalid input. Must enter a number")
     time.sleep(2)
 
 def use_pointslope():
-    x1 = float(input("What is the x coordinate of the first coordinate "))
-    y1 = float(input("What is the y coordinate of the first coordinate "))
-    x2 = float(input("What is the x coordinate of the second coordinate "))
-    y2 = float(input("What is the y coordinate of the second coordinate "))
     try:
+        x1 = float(input("What is the x coordinate of the first coordinate "))
+        y1 = float(input("What is the y coordinate of the first coordinate "))
+        x2 = float(input("What is the x coordinate of the second coordinate "))
+        y2 = float(input("What is the y coordinate of the second coordinate "))
         print(pointslope(x1,y1,x2,y2))
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: Invalid input. Must enter a number")
     time.sleep(2)
     
 def use_perpbisector():
-    x1 = float(input("What is the x coordinate of the first coordinate "))
-    y1 = float(input("What is the y coordinate of the first coordinate "))
-    x2 = float(input("What is the x coordinate of the second coordinate "))
-    y2 = float(input("What is the y coordinate of the second coordinate "))
     try:
+        x1 = float(input("What is the x coordinate of the first coordinate "))
+        y1 = float(input("What is the y coordinate of the first coordinate "))
+        x2 = float(input("What is the x coordinate of the second coordinate "))
+        y2 = float(input("What is the y coordinate of the second coordinate "))
         print(perpbisector(x1,y1,x2,y2))
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: Invalid input. Must enter a number")
     time.sleep(2)
     
         
